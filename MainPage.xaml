@@ -1,0 +1,220 @@
+﻿<Page
+    x:Class="Tamawatchi_V1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Tamawatchi_V1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DesignWidth="500">
+
+    <Page.Resources>
+        <Style x:Key="HamburgerButtonStyle" TargetType="Button" BasedOn="{StaticResource PaneToggleButtonStyle}">
+            <Setter Property="Foreground" Value="LightYellow"/>
+            <Setter Property="Background" Value="LimeGreen"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="3"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Width="500" Height="1000" Background="LightSeaGreen">
+        <!--<Image x:Name="welcomeSplash" Source="ms-appx:///Assets/welcomeSplash.png" Width="500" Height="1000"/>-->
+        <!--<Rectangle Fill="AntiqueWhite" Width="475" Height="475" Margin="10,515,15,10"/>-->
+
+        <Image x:Name="petImage" Source="ms-appx:///Assets/PetImages/pet0.png" Width="500" Height="350" VerticalAlignment="Top" Margin="0,115,0,0"/>
+        <Image Source="ms-appx:///Assets/Items/Hunger.png" Width="50" Height="50" Margin="29,12,421,938"/>
+        <ProgressBar x:Name="hungerBar" Background="White" Foreground="Lime"  Value ="1000" Maximum="2250" BorderThickness="2" BorderBrush="Black" Width="300" Height="25" Margin="104,26,96,0" VerticalAlignment="Top"/>
+        <Image Source="ms-appx:///Assets/Items/Happiness.png" Width="50" Height="50" Margin="29,67,421,883"/>
+        <ProgressBar x:Name="happBar" Background="White" Foreground="Pink"  Value ="800" Maximum="1000"
+                         BorderThickness="2" BorderBrush="Black" Width="300" Height="25" Margin="104,66,0,0" 
+                         VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+
+        <Grid x:Name="petGrid" Width="500" Height="500" Visibility="Visible" Margin="0,500,0,0" Background="Gold">
+            <Button x:Name="pet0" Click="changePet" Height="155" Width="155" VerticalAlignment="Top" BorderBrush="Black" Margin="48,95,0,0">
+                <Image Source="ms-appx:///Assets/PetImages/pet0.png" Width="150" Stretch="UniformToFill" 
+                       HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-5,-5,-5,-5"/>
+            </Button>
+
+            <TextBlock x:Name="pet0Name" Width="100" Text="Froggo" TextAlignment="Center" FontFamily="Comic Sans MS" Foreground="Black"
+                   FontSize="25" Margin="86,250,314,207"/>
+
+            <Button x:Name="pet1" Click="changePet" Height="155" Width="155" VerticalAlignment="Top" BorderBrush="Black" Margin="290,95,0,0">
+                <Image Source="ms-appx:///Assets/PetImages/pet1.png" Width="150" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Margin="-5,-5,-5,-5"/>
+
+            </Button>
+
+            <TextBlock x:Name="pet1Name" Width="100" Text="Happy" TextAlignment="Center" FontFamily="Comic Sans MS" Foreground="Black"
+                   FontSize="25"
+                   Margin="320,452,80,8"/>
+
+            <Button x:Name="pet2" Click="changePet" Height="155" Width="155" VerticalAlignment="Top" BorderBrush="Black" Margin="290,297,0,0">
+                <Image Source="ms-appx:///Assets/PetImages/pet2.png" Width="150" Stretch="UniformToFill" Margin="-10,-6,-8,-7"/>
+            </Button>
+
+            <TextBlock x:Name="pet2Name" Width="100" Text="Doggo" TextAlignment="Center" FontFamily="Comic Sans MS" Foreground="Black"
+                   FontSize="25"
+                   Margin="320,250,80,204"/>
+
+            <Button x:Name="pet3" Click="changePet" Height="155" Width="155" VerticalAlignment="Top" BorderBrush="Black" Margin="48,302,0,0">
+                <Image Source="ms-appx:///Assets/PetImages/pet3.png" Width="150" Stretch="UniformToFill" Margin="-5,-5,-5,-5"/>
+            </Button>
+
+            <TextBlock x:Name="pet3Name" Width="100" Text="Moe" TextAlignment="Center" FontFamily="Comic Sans MS" Foreground="Black"
+                   FontSize="25"
+                   Margin="77,455,323,1"/>
+        </Grid>
+
+
+        <Grid x:Name="foodGrid"  Width="500" Visibility="Collapsed">
+
+            <Rectangle Width="500" Height="500" Fill="Orange" Margin="0,501,0,-1"/>
+            <Rectangle Stroke="Black" Fill="White"  StrokeThickness="2" Width="100" Height="100" Margin="43,329,357,61" Grid.ColumnSpan="2"/>
+            <Rectangle Stroke="Black" Fill="White"  StrokeThickness="2" Width="100" Height="100" Margin="199,582,201,318"/>
+            <Rectangle Stroke="Black" Fill="White" StrokeThickness="2" Width="100" Height="100" Margin="354,586,46,314"/>
+
+            <Image x:Name="ImageChicken" Source="ms-appx:///Assets/FoodImages/food0.png" Width="100" Height="100" Margin="43,584,357,316"/>
+
+            <!--Assets for Chicken, 165cal-->
+            <TextBlock Text="Chicken" Foreground="Black" FontSize="20" FontFamily="Comic Sans MS" TextAlignment="Center"
+                   HorizontalAlignment="Left" Margin="51,558,0,416" Width="82"/>
+            <TextBlock TextAlignment="Center" FontFamily="Comic Sans MS" FontSize="20" Foreground="Black" Margin="51,719,352,252">165cal</TextBlock>
+
+
+            <TextBlock x:Name="servingsOne" Text="0" TextAlignment="Center" FontSize="25" FontFamily="Comic Sans MS" Foreground="Black" Margin="62,684,375,286" />
+            <Button MinWidth="5" Click="Button_Click" Name ="addOne" FontSize="20" Width="33" Height="36" Background="Transparent" Foreground="Black" Content="+" Margin="119,684,0,0" VerticalAlignment="Top" />
+            <Button MinWidth="5" Click=" Button_Click" Name ="removeOne" FontSize="20" Width="33" Height="36"  Margin="39,685,0,0" VerticalAlignment="Top" Background ="Transparent" Foreground="Black">-</Button>
+
+            <!--Assets for Rice 210-->
+            <Image x:Name="ImageRice" Source="ms-appx:///Assets/FoodImages/food1.png" Height="100" Width="100" RenderTransformOrigin="0.577,0.574" Margin="198,581,202,319"/>
+
+            <TextBlock Text="Rice" Foreground="Black"  FontSize="20" FontFamily="Comic Sans MS" TextAlignment="Center"
+                   Margin="187,553,194,0"  VerticalAlignment="Top"
+                 />
+            <TextBlock x:Name="servingsTwo" TextAlignment="Center" FontFamily="Comic Sans MS" FontSize="25" Margin="213,687,217,283" Text="0" Foreground="Black"  
+                 />
+            <TextBlock Foreground="Black" TextAlignment="Center" FontFamily="Comic Sans MS" FontSize="20" Margin="201,719,198,247" 
+                   >210cal</TextBlock>
+
+            <Button MinWidth="5" Click=" Button_Click" Name ="removeTwo" Width="33" Height="31" FontSize="20" Margin="192,685,0,0" VerticalAlignment="Top" Background ="Transparent" Foreground="Black" RenderTransformOrigin="0.559,0.728" 
+                >-</Button>
+            <Button MinWidth="5" Click=" Button_Click" Name ="addTwo" Width="33" Height="34" FontSize="20" VerticalAlignment="Top" Margin="269,685,0,0"  Background="Transparent" Foreground="Black" >+</Button>
+
+            <!--Assets for Egg cal 71-->
+            <Image x:Name="ImageEgg" Source="ms-appx:///Assets/FoodImages/food3.png" Height="100" Width="100" RenderTransformOrigin="0.577,0.574" Margin="354,586,46,314"/>
+
+            <TextBlock Text="Egg" Foreground="Black" FontSize="20" FontFamily="Comic Sans MS" TextAlignment="Center"
+                   Margin="388,554,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="TextBlock_SelectionChanged"/>
+
+            <TextBlock x:Name="servingsThree"  FontSize="25" FontFamily="Comic Sans MS" TextAlignment="Center" Margin="370,685,64,283" Text="0" Foreground="Black"  />
+            <TextBlock Foreground="Black" FontFamily="Comic Sans MS" FontSize="20" TextAlignment="Center" Margin="374,719,56,252" 
+                   >71cal</TextBlock>
+
+            <Button MinWidth="5" Click=" Button_Click" Name ="removeThree" FontSize="20" Width="33" Height="37" Margin="347,683,0,0" VerticalAlignment="Top" Background ="Transparent" Foreground="Black" 
+                >-</Button>
+            <Button MinWidth="5" Click=" Button_Click" Name ="addThree" Width="33" Height="37" FontSize="20" VerticalAlignment="Top" Margin="426,684,0,0"  Background="Transparent" Foreground="Black"  
+                >+</Button>
+
+            <!--Assets for Feed & Calorie Counter-->
+            <Rectangle Stroke="Black" Fill="LightGoldenrodYellow"  StrokeThickness="2" Margin="201,831,199,121" Width="100"/>
+            <TextBlock x:Name="totalServings" Text="Total Calories" TextAlignment="Center" 
+                   Foreground="Black" FontSize="25" FontFamily="Comic Sans MS" Width="200" Margin="155,780,145,179"/>
+
+            <TextBlock x:Name="totalCalories" Margin="201,838,199,118" TextAlignment="Center" Text="0" Foreground="Black" FontSize="25" FontFamily="Comic Sans MS" />
+            <!--<TextBox x:Name="totalServings" Foreground="Black" Background="Transparent" Margin="31,708,315,232" Text="Total Serving Count:"/>-->
+            <Button x:Name="feedPet"  Foreground="Black" FontSize="25" FontFamily="Comic Sans MS" BorderBrush="Black"
+                Background="LimeGreen" Click="Button_Click" Margin="0,914,0,0" VerticalAlignment="Top"  Height="50" Width="150" HorizontalAlignment="Center" >Feed Pet</Button>
+        </Grid>
+
+
+        <Grid x:Name="goalsGrid" Background="Transparent" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="543"/>
+                <RowDefinition Height="446"/>
+                <RowDefinition Height="11"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="235"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="235"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Width="500" Height="500" Fill="PaleGreen" Grid.ColumnSpan="4" Margin="0,501,1,0" Grid.RowSpan="3"/>
+
+            <StackPanel Grid.Row="1" Grid.Column="1" Background="PaleGreen" BorderBrush="Black" BorderThickness="3">
+                <TextBlock Text="Activity Goals" Foreground="Black" TextAlignment="Center" FontFamily="Comic Sans MS"
+                           Padding="10"/>
+                <Button x:Name="goal2_1" HorizontalAlignment="Center" Padding="10" Foreground="Black" BorderBrush="Black" Click="Click_Goal4">
+                    <StackPanel>
+                        <TextBlock Text="Short Walk" HorizontalAlignment="Center" FontFamily="Comic Sans MS"/>
+                        <Image x:Name="star4" Grid.Column="1" Width="20" Source="ms-appx:///Assets/Items/Star_Empty.png"/>
+                    </StackPanel>
+                </Button>
+                <!--<Button Content="Stretch 0/1" HorizontalAlignment="Center" Padding="10" BorderBrush="Black" Click="Click_Goal"/>-->
+                <Button x:Name="goal2_2" HorizontalAlignment="Center" Padding="10" Foreground="Black" BorderBrush="Black" Click="Click_Goal5">
+                    <StackPanel>
+                        <TextBlock Text="Stretch"  HorizontalAlignment="Center" FontFamily="Comic Sans MS"/>
+                        <Image x:Name="star5" Grid.Column="1" Width="20" Source="ms-appx:///Assets/Items/Star_Empty.png"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="3" Background="PaleGreen" BorderBrush="Black" BorderThickness="3" Margin="0,0,10,0">
+                <TextBlock Text="Food Goals" Foreground="Black" TextAlignment="Center" Padding="10" FontFamily="Comic Sans MS"/>
+                <Button x:Name="goal1_1" HorizontalAlignment="Center" Padding="10" Foreground="Black" BorderBrush="Black" Click="Click_Goal1">
+                    <StackPanel>
+                        <TextBlock Text="Eat Breafast" HorizontalAlignment="Center" FontFamily="Comic Sans MS"/>
+                        <Image x:Name="star1" Grid.Column="1" Width="20" Source="ms-appx:///Assets/Items/Star_Empty.png"/>
+                    </StackPanel>
+                </Button>
+                <Button HorizontalAlignment="Center" Click="Click_Goal2" Padding="10" Foreground="Black" BorderBrush="Black">
+                    <StackPanel>
+                        <TextBlock Text="Eat Lunch" HorizontalAlignment="Center" FontFamily="Comic Sans MS"/>
+                        <Image  x:Name="star2" Grid.Column="1" Width="20" Source="ms-appx:///Assets/Items/Star_Empty.png"/>
+                    </StackPanel>
+                </Button>
+                <Button  HorizontalAlignment="Center" Click="Click_Goal3" Padding="10" Foreground="Black" BorderBrush="Black">
+                    <StackPanel>
+                        <TextBlock Text="Eat Dinner" HorizontalAlignment="Center" FontFamily="Comic Sans MS"/>
+                        <Image  x:Name="star3" Grid.Column="1" Width="20" Source="ms-appx:///Assets/Items/Star_Empty.png"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="activityGrid" Visibility="Collapsed" Width="500" Height="500" Background="PaleTurquoise" Margin="0,500,0,0">
+            <Button MinWidth="75" Margin="0,61,0,0" Click="activityButtonClick" Name ="FiveMinuteStretch" 
+                Background="White" Foreground="Black" BorderBrush="Black"
+                VerticalAlignment="Top" Width="390" Height="50"
+                FontSize="25" FontFamily="Comic Sans MS" HorizontalAlignment="Center">
+                Five Minute Stretch</Button>
+            <Button MinWidth="75" Margin="48,200,0,0" Click=" activityButtonClick" Name ="TenMinuteWalk" CornerRadius="10"
+                Background="White" Foreground="Black" BorderBrush="Black"
+                VerticalAlignment="Top" Width="390" Height="50"
+                FontSize="25" FontFamily="Comic Sans MS">
+                Ten Minute Walk</Button>
+            <Button MinWidth="75" Margin="48,340,0,0" Click="Button2_Click" Content = "Start!" x:Name ="button" 
+                Background="White" Foreground="Black" BorderBrush="Black"
+                VerticalAlignment="Top" Width="390" Height="50"
+                FontSize="25" FontFamily="Comic Sans MS"></Button>
+            <!--<TextBlock Name="TimerLog" Margin="132,396,133,46"/>-->
+            <TextBlock MinWidth="75" Margin="147,255,153,0" Foreground="Black" VerticalAlignment="Top" Width="200" Height="75" FontSize="48" x:Name="txt"/>
+            <TextBlock MinWidth="75" Foreground="Black" VerticalAlignment="Top" Width="200" Height="75" FontSize="48" x:Name="timerlog" Margin="147,116,153,0"/>
+
+        </Grid>
+
+        <StackPanel Visibility="Visible" Orientation="Horizontal" Width="500" Height="80" Background="CornflowerBlue">
+            <Button x:Name="petButton" Content="Pets" FontFamily="Comic Sans MS" FontSize="30" 
+                    Foreground="Black" Background="Gold" Width="125" Height="80" Click="menuButton_Click"/>
+            <Button x:Name="foodButton" Content="Food" FontFamily="Comic Sans MS" FontSize="30" 
+                    Foreground="Black" Background="Orange" Width="125" Height="80" Click="menuButton_Click"/>
+            <Button x:Name="goalsButton" Content="Goals" FontFamily="Comic Sans MS" FontSize="27"
+                    Foreground="Black" Background="PaleGreen" Width="125" Height="80" Click="menuButton_Click"/>
+            <Button x:Name="activityButton" Content="Activity" FontFamily="Comic Sans MS" FontSize="25"
+                    Foreground="Black" Background="PaleTurquoise" Width="134" Height="80" Click="menuButton_Click"/>
+
+        </StackPanel>
+
+    </Grid>
+
+</Page>
